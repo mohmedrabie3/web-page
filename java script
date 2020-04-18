@@ -1,0 +1,32 @@
+
+require(["esri/views/MapView","esri/Map", 
+"esri/layers/FeatureLayer"], 
+function(MapView,Map,FeatureLayer){
+
+var featureLayer  = new FeatureLayer({
+     url: prompt("entre your layer")// "https://sampleserver6.arcgisonline.com/arcgis/rest/services/USA/MapServer/3"
+});
+
+var myMap = new Map ({
+    basemap: 'streets' , 
+	layers : featureLayer
+  }); 
+var myview = new MapView ({
+  map: myMap,  
+  container: "map"  ,
+  center: [31,30],
+  zoom: 5  
+});
+myview.on("layerview-create",function(y){
+myview.goTo(y.layer.fullExtent)})
+document.getElementById("remove").addEventListener("click",remove)
+function remove () {
+featureLayer.visible = false;
+}
+document.getElementById("add").addEventListener("click",add)
+function add () {
+	featureLayer.visible = true;
+}
+document.getElementById("go").addEventListener("click",go)
+});
+ 
