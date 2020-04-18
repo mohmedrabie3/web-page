@@ -1,0 +1,15 @@
+#map {
+	color : blue;
+	width : 100%;
+	height :80%;
+}
+#basemap {
+	height :20%;
+	width:20%;
+	 position:absolute , 
+	 left : 20%;
+}
+.url{
+	width : 55% ;
+	height :5%;
+}
